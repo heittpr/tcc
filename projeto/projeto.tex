@@ -1,0 +1,203 @@
+\documentclass[oneside,12pt,article,a4paper,english,brazil]{abntex2}
+
+% ---
+% pacotes e configurações
+% ---
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{tabularx}
+
+% citações
+\usepackage[num,overcite]{abntex2cite}
+\citebrackets[]
+\citeoption{abnt-full-initials=no}
+
+% espaçamento
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+% ---
+% dados
+% ---
+\titulo{Desenvolvimento de um juiz online e material preparatório para o ensino de programação competitiva}
+\autor{Heitor Leite e Daniel Martins}
+\local{Contagem}
+\data{Maio de 2022}
+\instituicao{
+  Centro Federal de Educação Tecnológica de Minas Gerais -- CEFET-MG \par
+  Departamento de Eletroeletrônica e Computação -- DELCOM \par
+  Curso Técnico Integrado em Informática
+}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+\preambulo{Projeto de pesquisa desenvolvido sob a orientação da Professora Elizabeth Duane e coorientação do Professor Alisson Rodrigo dos Santos}
+% ---
+
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+  pdftitle={\@title}, 
+  pdfauthor={\@author},
+  pdfsubject={\imprimirpreambulo},
+% pdfcreator={LaTeX with abnTeX2},
+% pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa}, 
+% colorlinks=true,
+% linkcolor=blue,
+% citecolor=blue,
+% filecolor=magenta,
+% urlcolor=blue,
+  bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+\makeindex
+
+\begin{document}
+\selectlanguage{brazil}
+\frenchspacing 
+
+% ---
+% elementos pré-textuais
+% ---
+
+% capa
+\imprimircapa
+
+% folha de rosto
+\imprimirfolhaderosto
+
+% lista de ilustrações
+%\pdfbookmark[0]{\listfigurename}{lof}
+%\listoffigures*
+%\cleardoublepage
+
+% lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% lista de abreviaturas e siglas
+\begin{siglas}
+  \item[OBI] Olimpíada Brasileira de Informática
+  \item[CSES] \emph{Code Submission Evaluation System}
+  \item[USACO] \emph{USA Computing Olympiad}
+  \item[TFC] Torneio Feminino de Computação
+  \item[IOI] \emph{International Olympiad in Informatics}
+  \item[CIIC] Competição Ibero-Americana de Informática e Computação
+  \item[EGOI] \emph{European Girls' Olympiad in Informatics}
+  \item[CMS] \emph{Contest Management System}
+  \item[JOI] \emph{Japanese Olympiad in Informatics}
+  \item[NZOI] \emph{New Zealand Olympiad in Informatics}
+  \item[COCI] \emph{Croatian Open Competition in Informatics}
+  \item[BOI] \emph{Baltic Olympiad in Informatics}
+  \item[CCO] \emph{Canadian Computing Competition}
+\end{siglas}
+
+% sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ---
+% elementos textuais
+% ---
+\textual
+
+\chapter*{Projeto de pesquisa}
+\addcontentsline{toc}{chapter}{PROJETO DE PESQUISA}
+
+\section{Tema geral}
+Aprendizado de técnicas e algoritmos utilizados na programação competitiva.
+
+\section{Título da pesquisa}
+\thetitle
+
+\subsection{Palavras-chave}
+Juiz Online. Programação competitiva. Ensino de programação.
+
+\section{Problema gerador}
+
+A OBI (Olimpíada Brasileira de Informática) é o principal evento de programação competitiva para alunos do ensino médio. Ela se dividide em duas modalidades: iniciação e programação, compostas por provas escritas e de codificação, respectivamente \cite{obi-info}. Na modalidade programação, os estudantes precisam escrever programas que resolvem problemas conhecidos da ciência da computação de maneira eficiente, sendo necessários conhecimentos avançados em algoritmos e estruturas de dados, aritmética, geometria computacional, matemática discreta, grafos, entre outros \cite{obi-ementa} \cite{ioi-syllabus}.
+
+Os conhecimentos exigidos são de difícil acesso para alunos de escolas que não tenham tradição olímpica na OBI. Mesmo em escolas onde há o ensino de programação, não é comum abordar os temas que aparecem nesse tipo de prova. Dessa forma, recursos em português gratuitos e de qualidade sobre programação competitiva a nível do ensino médio são escassos, prova disso é o fato da ementa oficial da OBI citar diversos textos em inglês \cite{obi-ementa}. Existem plataformas como o \href{https://neps.academy}{Neps Academy} com cursos especializados sobre o assunto, mas o acesso ao conteúdo atualizado é pago.
+
+No âmbito internacional, esse problema foi resolvido pelo surgimento de plataformas gratuitas como o \href{https://train.usaco.org/}{USACO Training} \cite{usaco-ioi} e o \href{https://usaco.guide}{USACO Guide}, ambas com conteúdo preparatório para a USACO (\emph{USA Computing Olympiad}), olimpíada de informática estadounidense; e o \href{https://cses.fi/}{CSES} (\emph{Code Submission Evaluation System}), uma coleção de problemas originais de programação competitiva acompanhada de um livro sobre o assunto (\emph{"Competitive Programmer's Handbook"}), desenvolvido pelo programador competitivo finlandês Antti Laaksonen \cite{cses-ioi}.
+
+Nesse contexto, o presente trabalho busca desenvolver uma plataforma de treinamento em programação competitiva gratuita e em português para preparar estudantes para as olimpíadas de informática, em especial as que abrangem os estudantes brasileiros como a OBI, o TFC (Torneio Feminino de Computação), a IOI (\emph{International Olympiad in Informatics}), a CIIC (Competição Ibero-Americana de Informática e Computação) e a EGOI (\emph{European Girls' Olympiad in Informatics}). Tal plataforma conterá um conjunto de problemas composto por problemas originais, bem como problemas traduzidos e arquivados de outras olimpíadas ao redor do mundo, além de uma série de textos introduzindo as técnicas e algoritmos utilizados no mundo da programação competitiva.
+
+\section{Objetivo geral}
+Democratizar o acesso à programação competitiva e às olimpíadas de informática. 
+
+\section{Objetivo específico}
+Desenvolver uma plataforma contendo um juiz online para problemas de programação competitiva e uma série de textos preparatórios sobre o assunto.
+
+\section{Referencial teórico}
+Embasamos nosso projeto nas diferentes plataformas citadas que cumprem um propósito similar fora do escopo nacional \cite{usaco-ioi} \cite{cses-ioi}.
+
+\section{Metodologia}
+O desenvolvimento do projeto se dividirá em três partes: a construção do juiz online, do site e do sistema para gerenciamento de textos e a população da plataforma com conteúdo.
+
+Na primeira parte, desenvolveremos um juiz online: um \emph{software} capaz de corrigir soluções para problemas de programação competitiva. O principal desafio nesse tipo de sistema é a segurança, já que é necessário executar código arbitrário fornecido pelo usuário. Para isso, utilizaremos o isolate \cite{isolate-ioi}, uma solução de \emph{sandboxing} desenvolvida exclusivamente para juizes online, sendo utilizada pelo CMS (\emph{Contest Management System}), sistema \emph{open-source} desenvolvido para uso na IOI a partir de 2012 \cite{cms-ioi}. Através do isolate é possível compilar e executar programas enviados pelo usuário de maneira segura, inibindo o acesso a certos recursos do sistema como a leitura e escrita de arquivos e o acesso à rede, além de limitar o tempo de execução e a memória utilizados, parte essencial dos problemas nesse tipo de competição.
+
+No que diz respeito ao desenvolvimento do site, utilizaremos o \emph{framework} Flask da linguagem Python para servir páginas semi-estáticas contendo Javascript mínimo, de modo a enfatizar a velocidade e simplicidade do sistema \cite{drew-flask}. Os textos serão escritos em uma sintaxe costumizada da linguagem Markdown, e compilados para HTML e PDF através do programa Pandoc, com filtros próprios desenvolvidos na linguagem Lua. Optou-se por desenvolver uma sintaxe própria para incorporar elementos que facilitem a redação de problemas e textos sobre programação competitiva, como o suporte nativo à graphviz (um \emph{software} para visualização de grafos) dentro dos documentos.
+
+Por fim, para popular a plataforma com conteúdo, serão desenvolvidos problemas simples que apresentem de maneira direta as principais técnicas usadas. Também serão pesquisados, traduzidos e arquivados no sistema problemas tanto de olimpíadas nacionais, em especial a seletiva para a IOI/CIIC/EGOI (fase final da modalidade programação nível 2 da OBI que seleciona os competidores que representarão o Brasil nas olimpíadas internacionais), cujos problemas passados são de difícil acesso; como de olimpíadas internacionais: IOI, CIIC, EGOI, USACO, JOI (\emph{Japanese Olympiad in Informatics}), NZOI (\emph{New Zealand Olympiad in Informatics}), COCI (\emph{Croatian Open Competition in Informatics}), BOI (\emph{Baltic Olympiad in Informatics}), CCO (\emph{Canadian Computing Competition}), etc. Além disso serão desenvolvidos uma série de textos disponibilizados no site para visualização pelo navegador e compilados para PDF em formato de livro explicando os principais conceitos, algoritmos e técnicas de programação competitiva, como definido pela ementa da OBI, mas não limitado à esta.
+
+\section{Cronograma}
+
+\begin{table}[htb]
+  \centering
+  \caption{Cronograma de desenvolvimento do projeto}
+  \begin{tabularx}{\textwidth}{|c|X|}
+    \hline
+    \textbf{Meses (2022)} & \textbf{Atividades} \\
+    \hline
+    Maio a Julho &
+    Familiarização com os \emph{frameworks} e \emph{softwares} utilizados \newline
+    Construção do juiz online e início da construção do site \\
+    \hline
+    Agosto e Setembro &
+    Integração do sistema do juiz com o sistema do site \newline
+    População da plataforma com conteúdo (problemas e textos) \\
+    \hline
+    Outubro &
+    Redação do relatório final \newline
+    Finalização do projeto \\
+    \hline
+    Novembro & Entrega do relatório final e defesa do TCC \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\phantompart
+
+% ---
+% elementos pós-textuais
+% ---
+\postextual
+
+% referências
+\newpage
+\bibliography{referencias}
+
+% apêndices
+%\begin{apendicesenv}
+%\partapendices
+%\end{apendicesenv}
+
+% anexos
+%\begin{anexosenv}
+%\partanexos
+%\end{anexosenv}
+
+\phantompart
+\printindex
+\end{document}
